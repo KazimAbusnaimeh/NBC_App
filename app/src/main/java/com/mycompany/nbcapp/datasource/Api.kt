@@ -9,5 +9,5 @@ import retrofit2.http.GET
 interface Api {
 
     @GET(PAGE_RESOURCE)
-    suspend fun getPage(): Call<Page>
+    suspend fun getPage():Call<Page>
 }
