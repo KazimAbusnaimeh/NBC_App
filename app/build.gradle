@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -16,10 +17,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file("local.properties").newDataInputStream())
-
-        buildConfigField "String", "PAGE_RESOURCE", "\"${properties.getProperty("PAGE_RESOURCE")}\""
+//        Properties properties = new Properties()
+//        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+//
+//        buildConfigField "String", "PAGE_RESOURCE", "\"${properties.getProperty("PAGE_RESOURCE")}\""
     }
 
     buildTypes {
