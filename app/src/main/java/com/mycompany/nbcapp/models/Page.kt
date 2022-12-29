@@ -2,12 +2,13 @@ package com.mycompany.nbcapp.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
+import javax.inject.Singleton
 
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class Page(
-    @SerializedName("page")
     val page: String,
-    @SerializedName("shelves")
     val shelves: List<Shelve>
 ): Parcelable
