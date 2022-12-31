@@ -1,6 +1,7 @@
 package com.mycompany.nbcapp.ui
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
@@ -19,12 +20,15 @@ import javax.inject.Inject
 @HiltViewModel
 class NbcViewModel @Inject constructor(
     private val repository: Repository
-):androidx.lifecycle.ViewModel() {
+) : androidx.lifecycle.ViewModel() {
     val page: MutableLiveData<Page> = MutableLiveData()
 
     fun setPage() {
-       viewModelScope.launch (Dispatchers.IO){
-           page.postValue(repository.getPage())
-       }
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                page.postValue(repository.getPage())
+            } catch (e: java.lang.Exception) {
+            }
+        }
     }
 }
