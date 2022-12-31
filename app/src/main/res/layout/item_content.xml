@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.mycompany.nbcapp.models.Item" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_item"
+            app:loadImageFromUri="@{data.image}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_show_title"
+            android:text="@{data.title}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="4dp"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/iv_item"
+            app:layout_constraintTop_toBottomOf="@+id/iv_item"
+            tools:text="name of the show" />
+
+        <TextView
+            android:text="@{data.subtitle}"
+            android:id="@+id/tv_show_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/iv_item"
+            app:layout_constraintTop_toBottomOf="@+id/tv_show_title"
+            tools:text="subtitle of the show" />
+
+        <TextView
+            android:text="@{data.labelBadge}"
+            android:id="@+id/tv_label_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/iv_item"
+            app:layout_constraintTop_toTopOf="@+id/iv_item"
+            tools:text="new" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/live_shape"
+            android:textColor="#ffffff"
+            android:paddingEnd="4dp"
+            app:showIfLive="@{data}"
+            android:paddingStart="4dp"
+            android:visibility="gone"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_item"
+            app:layout_constraintStart_toStartOf="@+id/iv_item"
+            tools:text="live" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
