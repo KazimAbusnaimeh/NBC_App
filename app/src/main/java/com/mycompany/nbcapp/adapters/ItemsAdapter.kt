@@ -1,4 +1,4 @@
-package com.mycompany.nbcapp.datasource.adapters
+package com.mycompany.nbcapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -29,18 +29,18 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         return differ.currentList.size
     }
 
-    private val differCallback= object :
-    DiffUtil.ItemCallback<Item>(){
+    private val differCallback = object :
+        DiffUtil.ItemCallback<Item>() {
         override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
-            return newItem.title==oldItem.title
+            return newItem.title == oldItem.title
         }
 
         override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
-            return newItem==oldItem
+            return newItem == oldItem
         }
 
     }
-    private val differ=AsyncListDiffer(this,differCallback)
+    val differ = AsyncListDiffer(this, differCallback)
 
     inner class ItemViewHolder(private val binding: ItemContentBinding) : ViewHolder(binding.root) {
         fun bind(item: Item) {

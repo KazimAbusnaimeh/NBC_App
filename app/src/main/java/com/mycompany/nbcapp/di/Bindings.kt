@@ -17,9 +17,19 @@ fun loadImageFromUrl(imageView: ImageView, image: String?) {
 }
 
 @BindingAdapter("app:showIfLive")
-fun showLiveText(tv: TextView, data:Item){
-    if (data.type=="Live"){
-        tv.text="live"
-        tv.isVisible=true
+fun showLiveText(tv: TextView, data: Item) {
+    if (data.type == "Live") {
+        tv.text = "live"
+        tv.isVisible = true
     }
 }
+
+@BindingAdapter("app:showIfNeed")
+fun showLabelText(tv: TextView, data: Item) {
+    if (data.labelBadge != null) {
+        tv.text = data.labelBadge
+        tv.isVisible = true
+    }
+}
+
+
